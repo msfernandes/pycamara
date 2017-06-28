@@ -17,7 +17,7 @@ class BaseClient(object):
 
     host = 'https://dadosabertos.camara.leg.br/api/v2/'
 
-    def get(self, path, **kwargs):
+    def _get(self, path, **kwargs):
         return self._make_request('GET', path.strip('/'), kwargs)
 
     def _make_request(self, method, path, params):
