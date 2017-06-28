@@ -29,11 +29,11 @@ class BaseClient(object):
         print(url)
 
         if not response.ok:
-            msg = "[{0}]: {1}".format(response.status_code, response.reason)
-            if 400 <= response.status_code < 500:
-                raise ClientError(msg, response=response)
-            else:
-                raise ClientServerError(msg + response.text, response=response)
+            error_json = response.json()
+            msg = "[{0}]: {1} - {2}".format(error_json['status'],
+                                            error_json['title'],
+                                            error_json['detail'])
+            raise ClientError(msg, response=response)
 
         response_json = response.json()
         next = None
