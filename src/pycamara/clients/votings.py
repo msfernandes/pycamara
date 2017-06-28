@@ -1,7 +1,7 @@
 from pycamara.base import BaseClient
 
 
-class VotingsClient(BaseClient):
+class VotingClient(BaseClient):
 
     def get(self, voting_id):
         path = '/votacoes/{}'.format(voting_id)
