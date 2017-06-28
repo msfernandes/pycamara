@@ -37,7 +37,7 @@ class BaseClient(object):
 
         response_json = response.json()
         next = None
-        if response_json['links']:
+        if 'links' in response_json and response_json['links']:
             for link in response_json['links']:
                 if link['rel'] == 'next':
                     next = link['href'].replace(self.host, '')
