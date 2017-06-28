@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from dateutil import parser
 from distutils.util import strtobool
-from pycamara.exceptions import ClientError, ClientServerError
+from pycamara.exceptions import ClientError
 import pytz
 import requests
 import sys
