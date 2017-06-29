@@ -6,6 +6,7 @@ from pycamara.clients import cd
 class LegislativeBodyImporter(BaseImporter):
 
     field_relation = {
+        'id': 'id',
         'initials': 'sigla',
         'name': 'nome',
         'legislative_body_type': 'idTipoOrgao'
