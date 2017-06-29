@@ -128,3 +128,25 @@ class Congressman(models.Model):
 
     def __str__(self):
         return '{0} - {1}'.format(self.party.initials, self.name)
+
+
+class CongressmanInfo(models.Model):
+
+    congressman = models.OneToOneField(Congressman, related_name='info')
+    legal_name = models.CharField(max_length=250)
+    cpf = models.CharField(max_length=50, null=True, blank=True)
+    birthdate = models.DateField(null=True, blank=True)
+    birth_state = models.ForeignKey(State, related_name='birth_congressmen',
+                                    null=True, blank=True)
+    birth_city = models.CharField(max_length=250, null=True, blank=True)
+    deathdate = models.DateField(null=True, blank=True)
+    gender = models.CharField(max_length=1)
+    site_url = models.CharField(max_length=250, null=True, blank=True)
+    education = models.CharField(max_length=50, null=True, blank=True)
+
+    class Meta:
+        verbose_name = "CongressmanInfo"
+        verbose_name_plural = "CongressmanInfos"
+
+    def __str__(self):
+        pass

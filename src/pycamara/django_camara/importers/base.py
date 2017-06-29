@@ -63,3 +63,21 @@ class BaseImporter(object):
                 continue
         obj, created = model_class.objects.get_or_create(**obj_dict)
         return obj
+
+
+class BaseDynamicDataImporter(BaseImporter):
+
+    def __new__(cls, data):
+        return super(BaseDynamicDataImporter, cls).__new__(cls)
+
+    def __init__(self, data):
+        self.data = data
+
+    @transaction.atomic
+    def save_data(self):
+        data = self.data
+        if isinstance(data, dict):
+            self._get_object(data)
+        elif isinstance(data, list):
+            for data_row in data:
+                self._get_object(data_row)
