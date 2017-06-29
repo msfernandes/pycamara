@@ -6,6 +6,7 @@ from pycamara.clients import cd
 class ReferenceImporter(BaseImporter):
 
     field_relation = {
+        'id': 'id',
         'initials': 'sigla',
         'name': 'nome',
         'description': 'descricao'

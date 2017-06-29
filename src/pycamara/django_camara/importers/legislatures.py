@@ -6,6 +6,7 @@ from pycamara.clients import cd
 class LegislatureImporter(BaseImporter):
 
     field_relation = {
+        'id': 'id',
         'start_date': 'dataInicio',
         'end_date': 'dataFim',
     }
