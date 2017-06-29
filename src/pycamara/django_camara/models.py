@@ -99,3 +99,32 @@ class LegislativeBody(models.Model):
 
     def __str__(self):
         return self.initials
+
+
+class Party(models.Model):
+
+    name = models.CharField(max_length=150)
+    initials = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = _("Party")
+        verbose_name_plural = _("Parties")
+
+    def __str__(self):
+        return self.initials
+
+
+class Congressman(models.Model):
+
+    name = models.CharField(max_length=150)
+    photo_url = models.CharField(max_length=255)
+    party = models.ForeignKey(Party, related_name='congressmen')
+    state = models.ForeignKey(State, related_name='congressmen')
+    legislature = models.ForeignKey(Legislature, related_name='congressmen')
+
+    class Meta:
+        verbose_name = _("Congressman")
+        verbose_name_plural = _("Congressmen")
+
+    def __str__(self):
+        return '{0} - {1}'.format(self.party.initials, self.name)
