@@ -71,3 +71,16 @@ class State(Reference):
     class Meta:
         verbose_name = _("State")
         verbose_name_plural = _("States")
+
+
+class Legislature(models.Model):
+
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    class Meta:
+        verbose_name = _("Legislature")
+        verbose_name_plural = _("Legislatures")
+
+    def __str__(self):
+        return self.id

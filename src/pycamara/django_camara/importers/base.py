@@ -25,7 +25,7 @@ class BaseImporter(object):
     def get_progressbar_label(self):
         return 'Importing {0} data'.format(
             self.get_model()._meta.verbose_name_plural
-        )
+        ).ljust(50)
 
     def after_save_object(self, obj):
         pass

@@ -1,10 +1,4 @@
 # -*- coding: utf8 -*-
-#
-# This file were created by Python Boilerplate. Use boilerplate to start simple
-# usable and best-practices compliant Python projects.
-#
-# Learn more about it at: http://github.com/fabiommendes/python-boilerplate/
-#
 
 import os
 from setuptools import setup, find_packages
@@ -26,6 +20,7 @@ INSTALL_DEPS = [
     'requests>=2.11.1',
     'pytz>=2017.2',
     'python-dateutil>=2.6.0',
+    'click>=6.7',
 ]
 
 setup(
