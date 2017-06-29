@@ -84,3 +84,18 @@ class Legislature(models.Model):
 
     def __str__(self):
         return self.id
+
+
+class LegislativeBody(models.Model):
+
+    initials = models.CharField(max_length=50)
+    name = models.CharField(max_length=150)
+    legislative_body_type = models.ForeignKey(
+        LegislativeBodyType, related_name='legislative_bodies')
+
+    class Meta:
+        verbose_name = _("Legislative Body")
+        verbose_name_plural = _("Legislative Bodies")
+
+    def __str__(self):
+        return self.initials
