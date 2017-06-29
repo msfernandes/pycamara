@@ -26,7 +26,6 @@ class BaseClient(object):
         params['itens'] = 100
         response = requests.request(method, url, params=params,
                                     headers=headers)
-        print(url)
 
         if not response.ok:
             error_json = response.json()
